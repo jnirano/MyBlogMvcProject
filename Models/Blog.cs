@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -38,7 +39,9 @@ namespace MyBlogMvcProject.Models
         [NotMapped]
         public IFormFile Image { get; set; } // IFormFile is the pysical representation of the image we select
 
-
+        // Navigation Properties
+        public virtual IdentityUser Author { get; set; }
+        public virtual ICollection<Post> Posts { get; set; } = new HashSet<Post>();
 
 
     }
