@@ -14,7 +14,7 @@ namespace MyBlogMvcProject.Models
     {
         public int Id { get; set; }
         public int BlogId { get; set; }
-        public string AuthorId { get; set; }
+        public string BlogUserId { get; set; }
 
         [Required]
         [StringLength(75, ErrorMessage = "The {0} must be atleast {2} and not more than {1} character long. ", MinimumLength = 2)]
@@ -37,7 +37,6 @@ namespace MyBlogMvcProject.Models
 
         public ReadyStatus ReadyStatus { get; set; } // This hold the true or false instead of using bool
 
-
         public string Slug { get; set; }
 
         public byte[] ImageData { get; set; }
@@ -48,7 +47,7 @@ namespace MyBlogMvcProject.Models
 
         //Navigation Properties
         public virtual Blog Blog { get; set; }
-        public virtual BlogUser Author { get; set; }
+        public virtual BlogUser BlogUser { get; set; }
 
         public virtual ICollection<Tag> Tags { get; set; } = new HashSet<Tag>();
         public virtual ICollection<Comment> Comments { get; set; } = new HashSet<Comment>();

@@ -31,12 +31,14 @@ namespace MyBlogMvcProject
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //  .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddIdentity<BlogUser, IdentityRole >(options => options.Signin.RequireConfirmedAccount = true)
-                .AddEntityFrameWorkStores<ApplicationDbContext>();
+
+            services.AddIdentity<BlogUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
         }
 

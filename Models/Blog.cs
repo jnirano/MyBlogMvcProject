@@ -12,7 +12,7 @@ namespace MyBlogMvcProject.Models
     public class Blog
     {
         public int Id { get; set; } // This is the Primary key of the blog model
-        public string AuthorId { get; set; } // Foreign key
+        public string BlogUserId { get; set; } // Foreign key
         
         [Required]
         [StringLength(100, ErrorMessage = "The {0} entered must be atleast {2} and atmost {1} characters.", MinimumLength = 2)] // 0 = name of the property, 2 is the value of manimum lenth & 1 is the value of maximum lenth
@@ -40,7 +40,7 @@ namespace MyBlogMvcProject.Models
         public IFormFile Image { get; set; } // IFormFile is the pysical representation of the image we select
 
         // Navigation Properties
-        public virtual BlogUser Author { get; set; }
+        public virtual BlogUser BlogUser { get; set; }
         public virtual ICollection<Post> Posts { get; set; } = new HashSet<Post>();
 
 
