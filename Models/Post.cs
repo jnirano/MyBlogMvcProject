@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using MyBlogMvcProject.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -34,7 +35,8 @@ namespace MyBlogMvcProject.Models
         [Display(Name = "Updated Date")]
         public DateTime Updated { get; set; }
 
-        public bool IsReady { get; set; }
+        public ReadyStatus ReadyStatus { get; set; } // This hold the true or false instead of using bool
+
 
         public string Slug { get; set; }
 
