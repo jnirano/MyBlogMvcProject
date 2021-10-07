@@ -40,7 +40,7 @@ namespace MyBlogMvcProject.Models
         public IFormFile Image { get; set; } // IFormFile is the pysical representation of the image we select
 
         // Navigation Properties
-        public virtual IdentityUser Author { get; set; }
+        public virtual BlogUser Author { get; set; }
         public virtual ICollection<Post> Posts { get; set; } = new HashSet<Post>();
 
 
