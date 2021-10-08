@@ -28,10 +28,17 @@ namespace MyBlogMvcProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            
+            //services.AddDbContext<ApplicationDbContext>(options => // Responsible for registering your services with the opportunity to talk to the database
+              //options.UseSqlServer(// Responsible for talking specifically to Microsoft sickle server
+                    //Configuration.GetConnectionString("DefaultConnection"))); //This line get the connection string that will be use to talk to SQL server.
+
+            services.AddDbContext<ApplicationDbContext>(options => // Responsible for registering your services with the opportunity to talk to the database
+               options.UseNpgsql(// Responsible for talking specifically to Microsoft sickle server
+                   Configuration.GetConnectionString("DefaultConnection"))); //This line get the connection string that will be use to talk to SQL server.
+
+
+
+
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
