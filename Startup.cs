@@ -36,17 +36,18 @@ namespace MyBlogMvcProject
                options.UseNpgsql(// Responsible for talking specifically to Microsoft sickle server
                    Configuration.GetConnectionString("DefaultConnection"))); //This line get the connection string that will be use to talk to SQL server.
 
-
-
-
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //  .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddIdentity<BlogUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddDefaultUI()
+                .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
