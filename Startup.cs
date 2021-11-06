@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyBlogMvcProject.Data;
 using MyBlogMvcProject.Models;
+using MyBlogMvcProject.Services;
+using MyBlogMvcProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +50,13 @@ namespace MyBlogMvcProject
             services.AddControllersWithViews();
 
             services.AddRazorPages();
+
+            //Register my custom DataService class as a Service
+            services.AddScoped<DataService>();
+
+            //Register a preconfigured instance of the mail class
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+            services.AddScoped<IBlogEmailSender, EmailService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -78,6 +87,11 @@ namespace MyBlogMvcProject
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+
+               
+                
+
+
             });
         }
     }
