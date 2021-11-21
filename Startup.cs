@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyBlogMvcProject.Data;
 using MyBlogMvcProject.Models;
+using MyBlogMvcProject.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,18 +29,11 @@ namespace MyBlogMvcProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<ApplicationDbContext>(options => // Responsible for registering your services with the opportunity to talk to the database
-              //options.UseSqlServer(// Responsible for talking specifically to Microsoft sickle server
-                    //Configuration.GetConnectionString("DefaultConnection"))); //This line get the connection string that will be use to talk to SQL server.
-
             services.AddDbContext<ApplicationDbContext>(options => // Responsible for registering your services with the opportunity to talk to the database
                options.UseNpgsql(// Responsible for talking specifically to Microsoft sickle server
                    Configuration.GetConnectionString("DefaultConnection"))); //This line get the connection string that will be use to talk to SQL server.
 
             services.AddDatabaseDeveloperPageExceptionFilter();
-
-            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-            //  .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddIdentity<BlogUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddDefaultUI()
@@ -48,7 +42,15 @@ namespace MyBlogMvcProject
             services.AddControllersWithViews();
 
             services.AddRazorPages();
+
+            //Register my custom DataService class
+            services.AddScoped<DataService>();
+
+            //Register a preconfigured instance of the mail class
+            //services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+            //services.AddScoped<IBlogEmailSender, EmailService>();
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
