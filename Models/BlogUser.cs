@@ -23,7 +23,11 @@ namespace MyBlogMvcProject.Models
         [Required]
         [StringLength(50, ErrorMessage = "The {0} must be at least {2} and not more than {1} character long.", MinimumLength = 2)]
         [Display(Name = "Last Name")]
+<<<<<<< HEAD
         public string DisplayName { get; set; }
+=======
+        public string DisplayName  { get; set; }
+>>>>>>> 3f01bee6813313ce190a9462f70acece2ef81951
 
         public byte[] ImageData { get; set; }
         public string ContentType { get; set; }

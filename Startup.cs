@@ -10,6 +10,10 @@ using Microsoft.Extensions.Hosting;
 using MyBlogMvcProject.Data;
 using MyBlogMvcProject.Models;
 using MyBlogMvcProject.Services;
+<<<<<<< HEAD
+=======
+using MyBlogMvcProject.ViewModels;
+>>>>>>> 3f01bee6813313ce190a9462f70acece2ef81951
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,12 +47,21 @@ namespace MyBlogMvcProject
 
             services.AddRazorPages();
 
+<<<<<<< HEAD
             //Register my custom DataService class
             services.AddScoped<DataService>();
 
             //Register a preconfigured instance of the mail class
             //services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
             //services.AddScoped<IBlogEmailSender, EmailService>();
+=======
+            //Register my custom DataService class as a Service
+            services.AddScoped<DataService>();
+
+            //Register a preconfigured instance of the mail class
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+            services.AddScoped<IBlogEmailSender, EmailService>();
+>>>>>>> 3f01bee6813313ce190a9462f70acece2ef81951
         }
 
 
@@ -80,6 +93,11 @@ namespace MyBlogMvcProject
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+
+               
+                
+
+
             });
         }
     }
