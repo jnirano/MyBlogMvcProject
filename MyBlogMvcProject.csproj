@@ -4,7 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>aspnet-MyBlogMvcProject-78110A7A-17BF-453F-B19B-35F6081F56FB</UserSecretsId>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
-  </PropertyGroup>
+  </PropertyGroup> 
 
   <ItemGroup>
     <Content Remove="Views\Comments\Details.cshtml" />
@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ToBeDeleted\" />
+    <Folder Include="aNowDeleted\" />
   </ItemGroup>
 
 </Project>

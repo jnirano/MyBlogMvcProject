@@ -28,10 +28,7 @@ namespace MyBlogMvcProject
             await dataService.ManageDataAsync();
 
             host.Run();
-<<<<<<< HEAD
 
-=======
->>>>>>> 3f01bee6813313ce190a9462f70acece2ef81951
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
