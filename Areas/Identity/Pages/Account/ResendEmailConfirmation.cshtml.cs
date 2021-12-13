@@ -70,6 +70,7 @@ namespace MyBlogMvcProject.Areas.Identity.Pages.Account
 
             ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
             return Page();
+
         }
     }
 }

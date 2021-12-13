@@ -11,14 +11,18 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="//use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
-    
+
     <!-- Google fonts-->
     <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
-    
+
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="~/css/styles.css" rel="stylesheet" />
-    
+
+    <!-- Summernote CSS Reference -->
+    <link href="~/css/summernote-bs4.min.css" rel="stylesheet" />
+
+
 </head>
 <body>
     <!-- Navigation-->
@@ -54,10 +58,10 @@
     </header>
 
     <!-- Main Content-->
-        @RenderBody()
+    @RenderBody()
 
-    <hr/>
-    
+    <hr />
+
 
     <!-- Footer-->
     <footer class="border-top">
@@ -101,6 +105,9 @@
 
     <!-- Core theme JS-->
     <script src="~/js/scripts.js"></script>
+
+    <!-- Summernote JS Reference -->
+    <script src="~/js/summernote-bs4.min.js"></script>
 
 
     @await RenderSectionAsync("Scripts", required: false)
