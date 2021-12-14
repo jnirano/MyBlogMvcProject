@@ -54,6 +54,10 @@ namespace MyBlogMvcProject
             //Register my custom DataService class as a Service
             services.AddScoped<DataService>();
 
+            //Register our Image Service
+            services.AddScoped<IImageService, BasicImageService>();
+
+
             //Register a preconfigured instance of the mail class
             //services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
             //services.AddScoped<IBlogEmailSender, EmailService>();
