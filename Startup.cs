@@ -57,6 +57,8 @@ namespace MyBlogMvcProject
             //Register our Image Service
             services.AddScoped<IImageService, BasicImageService>();
 
+            //Register the Slug Service
+            services.AddScoped<ISlugService, BasicSlugService>();
 
             //Register a preconfigured instance of the mail class
             //services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
