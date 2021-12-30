@@ -78,7 +78,6 @@ namespace MyBlogMvcProject.Controllers
                 }
 
                 post.Slug = slug;
-
                 _context.Add(post);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

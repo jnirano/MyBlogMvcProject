@@ -27,7 +27,6 @@ namespace MyBlogMvcProject.Services
             _userManager = userManager;
         }
 
-
         public async Task ManageDataAsync()
         {
             //Task 4: To programmaticallyt create the DataBase(DB) from the Migration instead of maually typing Updat-Database
