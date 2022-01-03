@@ -28,4 +28,8 @@
     <Folder Include="aNowDeleted\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\css\font\summernote.woff2" />
+  </ItemGroup>
+
 </Project>
